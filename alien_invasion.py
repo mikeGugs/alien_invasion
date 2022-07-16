@@ -76,6 +76,7 @@ class AlienInvasion:
             self._start_game()
             self.sb.prep_score()
             self.sb.prep_level()
+            self.sb.prep_ships()
 
 
     def _start_game(self):
@@ -182,6 +183,7 @@ class AlienInvasion:
         alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
         self.aliens.add(alien)
 
+
     def _check_fleet_edges(self):
         """Respond appropriately if any aliens have reached an edge."""
         for alien in self.aliens.sprites():
@@ -213,6 +215,7 @@ class AlienInvasion:
         if self.stats.ships_left > 0:
             # Decrement the ships_left.
             self.stats.ships_left -= 1
+            self.sb.prep_ships()
 
             # Get rid of any remaining aliens and bullets.
             self.aliens.empty()
@@ -247,6 +250,8 @@ class AlienInvasion:
         self.aliens.draw(self.screen)
         # Draw the score information.
         self.sb.show_score()
+        # Draw the label information.
+        self.sb.show_labels()
         # Draw the play button if the game is inactive.
         if not self.stats.game_active:
             self.play_button.draw_button()
