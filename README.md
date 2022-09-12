@@ -1,2 +1,2 @@
 # alien_invasion
-A game. This is mostly all copy/ paste from Python Crash Course by Eric Matthes, with a few tweaks added by me.
+A game. Most of this is directly out of Python Crash Course by Eric Matthes, with a few tweaks added by me.
